@@ -3,7 +3,6 @@
 var Download = require('download');
 var rimraf = require('rimraf');
 var semver = require('semver');
-var createBar = require('multimeter')(process);
 var path = require('path');
 var fs = require('fs');
 var merge = require('merge');
@@ -68,8 +67,6 @@ if (!url) logError('Could not find a compatible version of nw.js to download for
 
 var dest = path.resolve(__dirname, '..', 'nwjs');
 rimraf.sync(dest);
-
-var bar = createBar({ before: url + ' [' });
 
 var total = 0;
 var progress = 0;
